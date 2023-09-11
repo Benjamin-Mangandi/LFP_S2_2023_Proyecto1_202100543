@@ -1,10 +1,11 @@
 import graphviz
 import tkinter
 from tkinter import ttk
+from operaciones import analizar_archivo
 
 
-def analizar():
-    print("analizar")
+def salir():
+    menu.destroy()
 
 
 def buscando_errores():
@@ -17,23 +18,30 @@ def reporte_documento():
 
 menu = tkinter.Tk()
 menu.geometry("800x600", )
-menu.config(bg="#08227E")
-menu.title("Reportes")
+menu.config(bg="#262732")
+menu.title("Analizador Lexico")
 opciones = ("abrir", "Guardar", "Guardar Como", "Salir")
-frame_botones = tkinter.Frame(menu, background="#0E74CA")
+frame_botones = tkinter.Frame(menu, background="#3D3D3F")
 frame_botones.pack(side="top", fill="x")
-opciones_boton = ttk.Combobox(
-    frame_botones, background="#0ECA19", text="Archivo", values=opciones)
+barra_de_opciones = tkinter.Menu(menu)
+opciones_archivo = tkinter.Menu(barra_de_opciones, tearoff=0)
+opciones_archivo.add_command(label="Abrir")
+opciones_archivo.add_command(label="Guardar")
+opciones_archivo.add_command(label="Guardar Como")
+opciones_archivo.add_command(label="Salir", command=salir)
 analizar_boton = tkinter.Button(
-    frame_botones, background="#0ECA19", text="Analizar Texto", command=analizar)
+    frame_botones, background="#0ECA19", height=2,width=13 ,text="Analizar Texto", command=lambda: analizar_archivo.analizar(cuadro_de_texto,datos_texto))
 errores_boton = tkinter.Button(
-    frame_botones, background="#0ECA19", text="Ver Errores", command=buscando_errores)
+    frame_botones, background="#0ECA19",height=2,width=13, text="Ver Errores", command=buscando_errores)
 reporte_boton = tkinter.Button(
-    frame_botones, background="#0ECA19", text="Reporte", command=reporte_documento)
-cuadro_de_texto = tkinter.Text(menu, wrap="word")
-opciones_boton.pack(side="left", padx=50, pady=10)
-reporte_boton.pack(side="left", padx=50, pady=10)
-analizar_boton.pack(side="left", padx=50, pady=10)
-errores_boton.pack(side="left", padx=50, pady=10)
+    frame_botones, background="#0ECA19",height=2,width=13, text="Reporte", command=reporte_documento)
+cuadro_de_texto = tkinter.Text(menu)
+analizar_boton.pack(side="left", padx=80, pady=15)
+errores_boton.pack(side="left", padx=80, pady=15)
+reporte_boton.pack(side="left", padx=80, pady=15)
 cuadro_de_texto.pack(side="left", padx=70)
+datos_texto = tkinter.StringVar()
+barra_de_opciones.add_cascade(label="Archivo", menu=opciones_archivo)
+menu.config(menu=barra_de_opciones)
+menu.resizable(False, False)
 menu.mainloop()
