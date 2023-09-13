@@ -1,7 +1,8 @@
 import graphviz
 import tkinter
+from tkinter import *
 from tkinter import ttk
-from operaciones import analizar_archivo
+from operaciones import analizador_lexico
 
 
 def salir():
@@ -30,7 +31,7 @@ opciones_archivo.add_command(label="Guardar")
 opciones_archivo.add_command(label="Guardar Como")
 opciones_archivo.add_command(label="Salir", command=salir)
 analizar_boton = tkinter.Button(
-    frame_botones, background="#0ECA19", height=2,width=13 ,text="Analizar Texto", command=lambda: analizar_archivo.analizar(cuadro_de_texto,datos_texto))
+    frame_botones, background="#0ECA19", height=2,width=13 ,text="Analizar Texto", command=lambda: analizador_lexico.analizar(cuadro_de_texto.get("1.0", END)))
 errores_boton = tkinter.Button(
     frame_botones, background="#0ECA19",height=2,width=13, text="Ver Errores", command=buscando_errores)
 reporte_boton = tkinter.Button(
@@ -40,7 +41,6 @@ analizar_boton.pack(side="left", padx=80, pady=15)
 errores_boton.pack(side="left", padx=80, pady=15)
 reporte_boton.pack(side="left", padx=80, pady=15)
 cuadro_de_texto.pack(side="left", padx=70)
-datos_texto = tkinter.StringVar()
 barra_de_opciones.add_cascade(label="Archivo", menu=opciones_archivo)
 menu.config(menu=barra_de_opciones)
 menu.resizable(False, False)
