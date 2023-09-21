@@ -6,9 +6,9 @@ def analizar_palabra(abecedario, palabra,numero,columna, fila):
     for letra in palabra:
         if letra not in abecedario:
             nuevo_error = errores.formato_error(numero,letra,"Error Lexico", columna, fila)
-            errores_validados.append(nuevo_error)
-            print(letra)
-errores_validados = []
+
+errores_validados = {"Errores":[
+]}
 datos_validados = []
 datos_estilo = []
 inicio2 = ["valor1", "valor2"]
@@ -19,9 +19,13 @@ operaciones_aritmeticas = ["suma", "resta",
                            "multiplicacion", "division", "potencia"]
 
 def analizar(texto):
+    num_error=0
     nuevo_texto=texto
     columna =1
     fila = 0
+    posicion=0
+    while errores_validados["Errores"]:
+        errores_validados["Errores"].pop()
     for letra in texto:
         fila=fila+1
         if letra =="\n":
@@ -29,7 +33,20 @@ def analizar(texto):
             fila=0
         if letra.lower() not in abecedario:
             nuevo_texto = nuevo_texto.replace(letra, "")
-            print(letra, "columna: "+str(columna)+"fila: "+str(fila))
+            num_error=num_error+1
+            nuevo_error = errores.formato_error(num_error,letra,"Error Lexico", columna, fila)
+            errores_validados["Errores"].append(
+                {
+                    "No": num_error,
+                    "Descripcion": {
+                        "lexema": letra,
+                        "tipo": "error lexico",
+                        "columna": columna,
+                        "fila": fila
+                    }
+                }
+            )
+            posicion=posicion+1
     print(nuevo_texto)
     datos = json.loads(nuevo_texto)
     with open("archivo.json", "w") as archivo:
@@ -37,7 +54,6 @@ def analizar(texto):
     with open("archivo.json", "r") as archivo:
         datos_ingresados = json.load(archivo)
     i=0
-    num_error=0
     for configuracion in datos_ingresados:
         if configuracion.lower() in inicio:
             if configuracion.lower() == "operaciones":
