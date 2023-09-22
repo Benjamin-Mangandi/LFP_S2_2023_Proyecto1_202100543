@@ -22,11 +22,14 @@ class operacion:
         if tipo == "inverso":
             return 1/valor1
         if tipo == "seno":
-            return math.sin(valor1)
+            angulo_en_radianes = (valor1 * math.pi) / 180.0
+            return round(math.sin(angulo_en_radianes),4)
         if tipo == "coseno":
-            return math.cos(valor1)
+            angulo_en_radianes = (valor1 * math.pi) / 180.0
+            return round(math.cos(angulo_en_radianes),4)
         if tipo == "tangente":
-            return math.tan(valor1)
+            angulo_en_radianes = (valor1 * math.pi) / 180.0
+            return round(math.tan(angulo_en_radianes),4)
         if tipo == "mod":
             return valor1%valor2
         

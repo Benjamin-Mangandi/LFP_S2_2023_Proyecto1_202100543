@@ -6,7 +6,7 @@ def reiniciar():
 def graficar(datos):
     dot.render(datos[0].texto, view=True)
 def crear_nodo(datos, i, reconocedor):
-        if reconocedor ==1:
+        if reconocedor == 1:
              dot.node("tipo"+str(i), str(datos[i].tipo)+" \n "+str(datos[i].resultado))
              dot.node('valor1'+str(i), str(datos[i].valor1))
              dot.edge('tipo'+str(i), 'valor1'+str(i), label='')
