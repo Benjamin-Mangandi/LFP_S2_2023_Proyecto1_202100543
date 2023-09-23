@@ -7,31 +7,64 @@ class operacion:
         self.resultado = resultado
     def operar(tipo, valor1, valor2):
         if tipo == "suma":
-            return valor1+valor2
+            try:
+                return valor1+valor2
+            except Exception:
+                return 0
         if tipo == "resta":
-            return valor1-valor2
+            try:
+                return valor1-valor2
+            except Exception:
+                return 0
         if tipo == "multiplicacion":
-            return valor1*valor2
+            try:
+                return round(valor1*valor2,4)
+            except Exception:
+                return 0
         if tipo == "division":
-            if valor2 != 0:
-                return valor1/valor2
+            try:
+                if valor2 != 0:
+                    return round(valor1/valor2,4)
+            except Exception:
+                return 0
         if tipo == "potencia":
-            return math.pow(valor1,valor2)
+            try:
+                return math.pow(valor1,valor2)
+            except Exception:
+                return 0
         if tipo == "raiz":
-            return math.sqrt(valor1)
+            try:
+                return round(math.pow(valor1,1/valor2),4)
+            except Exception:
+                return 0
         if tipo == "inverso":
-            return 1/valor1
+            try:
+                return round(1/valor1,4)
+            except Exception:
+                return 0
         if tipo == "seno":
-            angulo_en_radianes = (valor1 * math.pi) / 180.0
-            return round(math.sin(angulo_en_radianes),4)
+            try:
+                angulo_en_radianes = (valor1 * math.pi) / 180.0
+                return round(math.sin(angulo_en_radianes),4)
+            except Exception:
+                return 0
         if tipo == "coseno":
-            angulo_en_radianes = (valor1 * math.pi) / 180.0
-            return round(math.cos(angulo_en_radianes),4)
+            try:
+                angulo_en_radianes = (valor1 * math.pi) / 180.0
+                return round(math.cos(angulo_en_radianes),4)
+            except Exception:
+                return 0
         if tipo == "tangente":
-            angulo_en_radianes = (valor1 * math.pi) / 180.0
-            return round(math.tan(angulo_en_radianes),4)
+            try:
+                angulo_en_radianes = (valor1 * math.pi) / 180.0
+                return round(math.tan(angulo_en_radianes),4)
+            except Exception:
+                return 0
         if tipo == "mod":
-            return valor1%valor2
+            try:
+                return valor1%valor2
+            except Exception:
+                return 0
         
 
 

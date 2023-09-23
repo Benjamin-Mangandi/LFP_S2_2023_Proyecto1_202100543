@@ -5,16 +5,17 @@ from tkinter import filedialog
 from operaciones import graficador
 from operaciones import analizador_lexico
 import json
+import subprocess
 
 
 def seleccionar_archivo(cuadro_texto):
-    graficador.reiniciar()
     archivo = filedialog.askopenfilename(title="Seleccionar un archivo")
     with open(archivo, "r") as archivo_cargado:
         texto = archivo_cargado.read()
     cuadro_texto.delete(1.0, END)
     cuadro_texto.insert(1.0, texto)
     ruta_archivo.set(archivo)
+    graficador.reiniciar()
 def guardar(cuadro_texto):
     if ruta_archivo.get() == "":
         texto = cuadro_texto.get("1.0", END)
@@ -53,6 +54,7 @@ def buscando_errores(errores):
     else:
         with open("RESULTADOS_202100543.json", "w") as archivo:
             json.dump(analizador_lexico.errores_validados, archivo, indent=4)
+        subprocess.Popen(['notepad.exe', "RESULTADOS_202100543.json"])
 def reporte_documento():
     graficador.graficar(analizador_lexico.datos_estilo)
 
