@@ -17,7 +17,7 @@ inicio_3 = ["fuente", "texto", "forma", "fondo"]
 inicio2 = ["valor1", "valor2", "operacion"]
 inicio = ["operaciones", "configuraciones"]
 abecedario = ["{","}","[","]", ":", ",", '"' , " ", "\n" ,"=" ,"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
-              "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3","4", "5", "6", "7", "8", "9", "."]
+              "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3","4", "5", "6", "7", "8", "9", ".", "-"]
 operaciones_aritmeticas = ["suma", "resta",
                            "multiplicacion", "division", "potencia", "mod", 
                            "seno", "raiz", "inverso", "coseno", "tangente"]
@@ -184,7 +184,7 @@ def analizar(texto):
                         else:    
                             nuevo_valor1 = datos_ingresados[configuracion][i]["valor1"]
                         resultado = aritmetica.operacion.operar(nueva_operacion, nuevo_valor1, 1)
-                        nuevo_dato = aritmetica.operacion(nueva_operacion,round(nuevo_valor1,4), 1, resultado)
+                        nuevo_dato = aritmetica.operacion(nueva_operacion,round(nuevo_valor1,4), 1, round(resultado,4))
                         datos_validados.append(nuevo_dato)
                         graficador.crear_nodo(datos_validados,contador,1, nuevo_estilo)
                         contador=contador+1
@@ -206,7 +206,7 @@ def analizar(texto):
                         else:
                             nuevo_valor2 = datos_ingresados[configuracion][i]["valor2"]
                         resultado = aritmetica.operacion.operar(nueva_operacion, nuevo_valor1, nuevo_valor2)
-                        nueva_operacion = aritmetica.operacion(nueva_operacion,round(nuevo_valor1,4), round(nuevo_valor2,4), resultado)
+                        nueva_operacion = aritmetica.operacion(nueva_operacion,round(nuevo_valor1,4), round(nuevo_valor2,4), round(resultado,4))
                         datos_validados.append(nueva_operacion)
                         graficador.crear_nodo(datos_validados,contador,0, nuevo_estilo)
                         contador=contador+1  

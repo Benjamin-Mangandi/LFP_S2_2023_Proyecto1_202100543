@@ -7,7 +7,7 @@ Universidad San Carlos De Guatemala
 Programador: Harold Benjamin Oxlaj Mangandi
 Carne: 202100543
 Lenguaje: Python
-Bibliotecas usadas: graphviz, json, tkinter, subprocess
+Bibliotecas usadas: graphviz, json, tkinter, subprocess,graphviz, math
 ```
 ---
 ### Descripción del Proyecto
@@ -24,6 +24,7 @@ Es en donde se encuentra el iniciador de la ventana principal, contiene todos lo
 ### *guardar*
 ### *guardar_como*
 ### *salir*
+Esta funcion simplemente cierra la ventana junto con el proceso con la funcion *destroy()*
 ### *buscando_errores*
 ### *reporte_documento*
 # Manual_usuario.md
