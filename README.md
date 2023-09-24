@@ -56,32 +56,25 @@ Estas funciones simplemente abren en el bloc de notas los archivos del manual de
 ### *crear_nodo*
 ### *agregar_estilo*
 # **Funciones**
-# __init__.py
 ## objetos
 # aritmertica.py
+# **Clase**: operacion
+Esta clase tiene como atributos *tipo*, que es tipo de operación aritmetica, *valor1*, que es el primer valor ingresado, *valor2* que es el segundo valor ingresado, *resultado* que es el resultado de la operacion aritmetica dado los dos valores.
+![operacion](https://i.ibb.co/Lxy3mJs/operacion.png)
+# **Funciones**
 ### *operar*
-# **Funciones**
+**Parametros**: tipo de operacion, valor 1 y valor2
+Esta funcion opera los dos valores ingresados teniendo como condición el tipo de operacion, por ejemplo, si el tipo de operación es "suma" suma los dos valores, o si es division, divide los dos valores asegurandose que no sea 0 el segundo.
+Redondea todas las operaciones a 4 decimales.
+![operar1](https://i.ibb.co/JR9T6dX/operar1.png)
+![operar2](https://i.ibb.co/27XQjDx/operar2.png)
+![operar3](https://i.ibb.co/ryngrCr/operar3.png)
+![operar4](https://i.ibb.co/gd0dNQk/operar4.png)
 # errores.py
-# **Funciones**
+# **Clase**: formato_error
+Esta clase tiene como atributos *numero*, que es numero de error, *lexema*, que es el caracter que es reconocido como un error por el analizador, *tipo* que es el tipo de error, *columna* que es la columna donde se encuentra el error, *fila*, que es la fila donde se encuentra el error.
+![formato_error](https://i.ibb.co/kcNGBgh/formato-error.png)
 # estilo.py
-# **Funciones**
-
-
-# **Funciones**
-
-### *elegir_opcion*
-![Codigo_opciones](https://i.ibb.co/L5m057m/elegir-opcion.png)
-
-### *convertir_numericos*
-![Codigo_numericos1](https://i.ibb.co/QCyWRxZ/convertir-numericos1.png)
-![Codigo_numericos1](https://i.ibb.co/dWndjps/convertir-numericos2.png)
-
-### *cargar_inventario*
-![Codigo_inventario](https://i.ibb.co/QPS1sM4/cargar-inventario.png)
-
-### *cargar_movimientos*
-![Codigo_movimientos1](https://i.ibb.co/Ms4GsPY/cargar-movimientos1.png)
-![Codigo_movimientos2](https://i.ibb.co/vVnXVrw/cargar-movimientos2.png)
-
-### *crear_informe*
-![Codigo_informe](https://i.ibb.co/tLVzQpy/creari-nforme.png)
+# **Clase**: estilo_grafico
+Esta clase tiene como atributos *texto*, que es el nombre que se le dará al documento, *fondo*, que es color de los nodos, *fuente*, que es color de la letra y *forma* que es la forma que tendra los nodos.
+![estilo_grafico](https://i.ibb.co/3RBPfrC/estilo-grafico.png)
