@@ -6,61 +6,61 @@ class operacion:
         self.valor2 = valor2
         self.resultado = resultado
     def operar(tipo, valor1, valor2):
-        if tipo == "suma":
+        if tipo.lower() == "suma":
             try:
                 return valor1+valor2
             except Exception:
                 return 0
-        if tipo == "resta":
+        if tipo.lower() == "resta":
             try:
                 return valor1-valor2
             except Exception:
                 return 0
-        if tipo == "multiplicacion":
+        if tipo.lower() == "multiplicacion":
             try:
                 return round(valor1*valor2,4)
             except Exception:
                 return 0
-        if tipo == "division":
+        if tipo.lower() == "division":
             try:
                 if valor2 != 0:
                     return round(valor1/valor2,4)
             except Exception:
                 return 0
-        if tipo == "potencia":
+        if tipo.lower() == "potencia":
             try:
                 return math.pow(valor1,valor2)
             except Exception:
                 return 0
-        if tipo == "raiz":
+        if tipo.lower() == "raiz":
             try:
                 return round(math.pow(valor1,1/valor2),4)
             except Exception:
                 return 0
-        if tipo == "inverso":
+        if tipo.lower() == "inverso":
             try:
                 return round(1/valor1,4)
             except Exception:
                 return 0
-        if tipo == "seno":
+        if tipo.lower() == "seno":
             try:
                 angulo_en_radianes = (valor1 * math.pi) / 180.0
                 return round(math.sin(angulo_en_radianes),4)
             except Exception:
                 return 0
-        if tipo == "coseno":
+        if tipo.lower() == "coseno":
             try:
                 angulo_en_radianes = (valor1 * math.pi) / 180.0
                 return round(math.cos(angulo_en_radianes),4)
             except Exception:
                 return 0
-        if tipo == "tangente":
+        if tipo.lower() == "tangente":
             try:
                 angulo_en_radianes = (valor1 * math.pi) / 180.0
                 return round(math.tan(angulo_en_radianes),4)
             except Exception:
                 return 0
-        if tipo == "mod":
+        if tipo.lower() == "mod":
             try:
                 return valor1%valor2
             except Exception:
