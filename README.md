@@ -7,19 +7,20 @@ Universidad San Carlos De Guatemala
 Programador: Harold Benjamin Oxlaj Mangandi
 Carne: 202100543
 Lenguaje: Python
-Bibliotecas usadas: graphviz, json, tkinter, subprocess,graphviz, math
+Bibliotecas usadas: graphviz, json, tkinter, subprocess, graphviz, math
 ```
 ---
 ### Descripción del Proyecto
 El siguiente proyecto es un analizador lexico, el cual tiene como objetivo reconocer errores lexico ingresados por el usuario haciendo uso del formato .json, mostrarle al usuario los posibles errores al momento de leer un archivo y graficar las operaciones ingresadas por medio de nodos utilizando para eso la libreria graphiz.
-### Partes del Proyecto
-## **Archivos y Carpetas**
-## Carpeta Principal
+## Partes del Proyecto
+### **Archivos y Carpetas**
+### Carpeta Principal
 # main.py
 **Importa**: *analizador_lexico, graficador*
 Es en donde se encuentra el iniciador de la ventana principal: *menu*, contiene todos los elementos de tkinter de la ventana principal, la cual cuenta con un cuadro de texto por medio de *tkinter.text* el cual sirve para que el usuario ingrese las operaciones deseadas o bien cargue un archivo mediante el boton *abrir* el cual está como comando en un *tkinter.Menu*; se puede sobreescribir el archivo, guardarlo como otro diferente o salir de la aplicacion
-![main](https://i.ibb.co/85dsk2Q/menu.png)
-# **Funciones**
+![main](https://i.ibb.co/Yy8rpyd/menu1.png)
+![main2](https://i.ibb.co/DYd09Rg/menu2.png)
+## **Funciones**
 ### *seleccionar_archivo*
 **Parametros**: nombre del cuadro de texto
 Esta función permite abrir un archivo de texto al usuario por medio de la función de tkinter 
@@ -36,6 +37,8 @@ Esta función permite guardar como un archivo aparte el texto que el usuario hay
 Esta funcion simplemente cierra la ventana junto con el proceso con la funcion *destroy()*
 ![guardar_salir](https://i.ibb.co/fnnpsrD/guardar-como-y-salir.png)
 ### *buscando_errores*
+**Parametros**: diccionario de errores
+Esta funcion recibe como parametro un diccionario el cual contendra los errores del texto dentro de un arreglo, dependiendo la longitud del arreglo mostrará un mensaje de que no hay ningun error, o creará un archivo .json con los errores y lo abrirá con el bloc de notas.
 ![buscando_errores](https://i.ibb.co/NtS74XV/buscando-errores.png)
 ### *reporte_documento*
 Esta funcion determina si hay operaciones ingresadas por el usuario por medio de una condicion con la varible del archivo **analizador_lexico** *datos_validados* si los hay grafica normalmente, si no, manda una advertencia al usuario.
@@ -43,25 +46,35 @@ Esta funcion determina si hay operaciones ingresadas por el usuario por medio de
 ### *manual_usuario y manual_tecnico*
 Estas funciones simplemente abren en el bloc de notas los archivos del manual de usuario y tecnico respectivamente
 ![usuario_tecnico](https://i.ibb.co/M71RbzX/usuario-tecnico.png)
-## Operaciones
+### Operaciones
 # analizador.py
-# **Funciones**
+## **Funciones**
 ### *analizar_palabra*
+![analizar_palabra](https://i.ibb.co/Lxy3mJs/operacion.png)
 ### *sub_operaciones*
+![sub_operaciones](https://i.ibb.co/Lxy3mJs/operacion.png)
 ### *sub_sub_operaciones*
+![sub2_operaciones](https://i.ibb.co/Lxy3mJs/operacion.png)
 ### *analizar*
+![analizar](https://i.ibb.co/Lxy3mJs/operacion.png)
 # graficador.py
 ### *reiniciar*
+Esta funcion simplemente reinicia los nodos ya creados en analisis anteriores por medio de *clear()*
 ### *graficar*
+**Parametros**: arreglo
+Esta funcion grafica los nodos creados por medio de la funcion *render()* y le da nombre al documento por medio del parametro ingresado que es en donde se guardan los datos del estilo en la posicion 0 y lo abre en un archivo pdf
+![reiniciar y graficar](https://i.ibb.co/fFzns3y/reinicar-graficar.png)
 ### *crear_nodo*
-### *agregar_estilo*
-# **Funciones**
-## objetos
-# aritmertica.py
+**Parametros**: arreglo, numero, clave_numerica, varible de tipo estilo.
+esta funcion crea y le da el estilo a los nodos, tiene una condicion con la clave numerica, si es igual a 1 es que solo se crean 2 nodos para esa operacion por medio de una funcion *node()* y la funcion *edge()* para unirlos, si es 0, se hacen 3 nodos para una operacion con su respectivo estilo.
+![crear_nodo](https://i.ibb.co/fXVDPYF/crear-nodo.png)
+## **Funciones**
+### objetos
+# aritmetica.py
 # **Clase**: operacion
 Esta clase tiene como atributos *tipo*, que es tipo de operación aritmetica, *valor1*, que es el primer valor ingresado, *valor2* que es el segundo valor ingresado, *resultado* que es el resultado de la operacion aritmetica dado los dos valores.
 ![operacion](https://i.ibb.co/Lxy3mJs/operacion.png)
-# **Funciones**
+## **Funciones**
 ### *operar*
 **Parametros**: tipo de operacion, valor 1 y valor2
 Esta funcion opera los dos valores ingresados teniendo como condición el tipo de operacion, por ejemplo, si el tipo de operación es "suma" suma los dos valores, o si es division, divide los dos valores asegurandose que no sea 0 el segundo.
@@ -70,10 +83,6 @@ Redondea todas las operaciones a 4 decimales.
 ![operar2](https://i.ibb.co/27XQjDx/operar2.png)
 ![operar3](https://i.ibb.co/ryngrCr/operar3.png)
 ![operar4](https://i.ibb.co/gd0dNQk/operar4.png)
-# errores.py
-# **Clase**: formato_error
-Esta clase tiene como atributos *numero*, que es numero de error, *lexema*, que es el caracter que es reconocido como un error por el analizador, *tipo* que es el tipo de error, *columna* que es la columna donde se encuentra el error, *fila*, que es la fila donde se encuentra el error.
-![formato_error](https://i.ibb.co/kcNGBgh/formato-error.png)
 # estilo.py
 # **Clase**: estilo_grafico
 Esta clase tiene como atributos *texto*, que es el nombre que se le dará al documento, *fondo*, que es color de los nodos, *fuente*, que es color de la letra y *forma* que es la forma que tendra los nodos.
