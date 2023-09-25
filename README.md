@@ -48,15 +48,31 @@ Estas funciones simplemente abren en el bloc de notas los archivos del manual de
 ![usuario_tecnico](https://i.ibb.co/M71RbzX/usuario-tecnico.png)
 ### Operaciones
 # analizador.py
+Este archivo contiene todos los abecedarios que usa el analizador para validar caracteres y palabras.
+![analizador1](https://i.ibb.co/VQgJ2Qj/analizador1.png)
 ## **Funciones**
-### *analizar_palabra*
-![analizar_palabra](https://i.ibb.co/Lxy3mJs/operacion.png)
-### *sub_operaciones*
-![sub_operaciones](https://i.ibb.co/Lxy3mJs/operacion.png)
-### *sub_sub_operaciones*
-![sub2_operaciones](https://i.ibb.co/Lxy3mJs/operacion.png)
 ### *analizar*
-![analizar](https://i.ibb.co/Lxy3mJs/operacion.png)
+**Parametros**: texto del cuadro de texto
+Esta función analiza el texto del cuadro de texto en busca de errores, y al mismo tiempo reiniciar la grafica por medio de la funcion *reiniciar()*y los errores de archivos anteriores.
+analiza caracter a caracter el texto brindado y si encuentra un caracter que no esté en abecedario lo incluye como un error, y se suma al contador de errores, la fila y la columna.
+al terminar lee las configuraciones del archivo de texto para la grafica y sus nodos y lo guarda en el arreglo *datos_estilo*.
+![analizar1](https://i.ibb.co/HpZxhxk/analizar1.png)
+![analizar2](https://i.ibb.co/k3MwPbV/analizar2.png)
+por medio de un ciclo for lee cada operacion ingresada por el usuario mediante el texto y validando si los nombres de las claves son los correctos, al llegar a los valores, verifica si hay solo un valor o dos, y si un valor es en realidar un arreglo con mas valores, en ese caso manda a llamar a la funcion *sub_operacioes()* recibiendo el valor retornado por la funcion en la variable *resultado*  si no entonces manda a llamar a la funcion *operar()* e igualmente recibiendo el valor en la variable *resultado*; con los valores verificados se crea una variable de tipo **operacion**, se guarda en el arreglo *datos_validados* y se mandan como parametros para la funcion *crear_nodos()*
+![analizar3](https://i.ibb.co/vz5tPqY/analizar3.png)
+![analizar4](https://i.ibb.co/FJmjXXt/analizar4.png)
+Al terminar de verificar las operaciones pueden occurir dos casos, si el arreglo de errores está vacio manda un notificacion al usuario informandole que no hay ningún error, y si hay por lo menos un error, manda una advertencia de que se encontraron errores y que puede pulsar el boton *"ver errores"* en el menú principal
+![analizar5](https://i.ibb.co/5MtyR9M/analizar5.png)
+### *sub_operaciones*
+**Parametros**: posicion del arreglo 1, posicion del arreglo 2, arreglo de operaciones, operacion, nombre de la clave
+Esta función realiza las subo-peracion que requiera el usuario al validar que los nombres de las claves sean correctos y dependiendo que si un valor es otro arreglo o no, si es un valor manda a operar los valores con la función *operar()* de la clase **operacion** si es un arreglo, manda a llamar a la funcion *sub_sub_operaciones*
+![sub_operaciones](https://i.ibb.co/Pwr8kWT/sub-operar1.png)
+![sub_operaciones2](https://i.ibb.co/J5Sw3N1/sub-operar2.png)
+### *sub_sub_operaciones*
+**Parametros**: posicion del arreglo 1, posicion del arreglo 2, arreglo de operaciones, operacion, nombre de la clave
+Esta funcion sigue el mismo principio que la anterior, realiza las sub-operaciones que requiera la funcion anterior con los datos recolectados de la funcion anterior, y dependiendo si un valor es un arreglo o no, manda a llamar a la funcion *operar()* para validar los datos.
+![sub2_operaciones](https://i.ibb.co/87RKhDT/sub-sub-operar.png)
+![sub2_operaciones2](https://i.ibb.co/tLyPTgd/sub-sub-operar2.png)
 # graficador.py
 ### *reiniciar*
 Esta funcion simplemente reinicia los nodos ya creados en analisis anteriores por medio de *clear()*
