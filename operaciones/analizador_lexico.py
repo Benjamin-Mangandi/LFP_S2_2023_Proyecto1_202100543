@@ -88,7 +88,7 @@ def sub_sub_operaciones(i, j, arreglo, configuracion, valor, valor2):
                 sub_valor2 = 1
             else:
                 sub_valor2 = arreglo[configuracion][i][valor][j][valor2][k]["valor2"]
-            return aritmetica.operacion.operar(sub_operacion, sub_valor2, sub_valor1)
+            return aritmetica.operacion.operar(sub_operacion, sub_valor1, sub_valor2)
 
 
 def analizar(texto):
