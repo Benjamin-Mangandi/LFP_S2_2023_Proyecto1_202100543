@@ -74,6 +74,7 @@ Esta funcion sigue el mismo principio que la anterior, realiza las sub-operacion
 ![sub2_operaciones](https://i.ibb.co/87RKhDT/sub-sub-operar.png)
 ![sub2_operaciones2](https://i.ibb.co/tLyPTgd/sub-sub-operar2.png)
 # graficador.py
+## **Funciones**
 ### *reiniciar*
 Esta funcion simplemente reinicia los nodos ya creados en analisis anteriores por medio de *clear()*
 ### *graficar*
@@ -84,7 +85,7 @@ Esta funcion grafica los nodos creados por medio de la funcion *render()* y le d
 **Parametros**: arreglo, numero, clave_numerica, varible de tipo estilo.
 esta funcion crea y le da el estilo a los nodos, tiene una condicion con la clave numerica, si es igual a 1 es que solo se crean 2 nodos para esa operacion por medio de una funcion *node()* y la funcion *edge()* para unirlos, si es 0, se hacen 3 nodos para una operacion con su respectivo estilo.
 ![crear_nodo](https://i.ibb.co/fXVDPYF/crear-nodo.png)
-## **Funciones**
+
 ### objetos
 # aritmetica.py
 # **Clase**: operacion
